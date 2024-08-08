@@ -13,15 +13,19 @@ const ContactList = () => {
 
   return (
     <ul className={s.list}>
-      {filteredData.map((contact) => (
-        <li key={contact.id} className={s.item}>
-          <Contact
-            id={contact.id}
-            name={contact.name}
-            number={contact.number}
-          />
-        </li>
-      ))}
+      {filteredData.length ? (
+        filteredData.map((contact) => (
+          <li key={contact.id} className={s.item}>
+            <Contact
+              id={contact.id}
+              name={contact.name}
+              number={contact.number}
+            />
+          </li>
+        ))
+      ) : (
+        <h2>Contact list is empty!</h2>
+      )}
     </ul>
   );
 };

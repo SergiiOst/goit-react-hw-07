@@ -1,7 +1,7 @@
 import { FaPhone, FaUser } from "react-icons/fa6";
 import s from "./Contact.module.css";
-import { deleteContact } from "../../redux/contactsSlice";
 import { useDispatch } from "react-redux";
+import { deleteContactsThunk } from "../../redux/operations";
 
 const Contact = ({ name, number, id }) => {
   const dispatch = useDispatch();
@@ -21,7 +21,9 @@ const Contact = ({ name, number, id }) => {
           {number}
         </p>
       </div>
-      <button className={s.btn} onClick={() => dispatch(deleteContact(id))}>
+      <button
+        className={s.btn}
+        onClick={() => dispatch(deleteContactsThunk(id))}>
         Delete
       </button>
     </div>
